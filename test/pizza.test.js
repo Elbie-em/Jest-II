@@ -27,3 +27,9 @@ for (let i = 0; i < pizzas.length; i+=1) {
         expect(pizzas[i]).not.toHaveProperty('flavor');
     });
 }
+
+test('mock implementation of a basic function', () => {
+    const mock = jest.fn(() => 'I am a mock function');
+    expect(mock('Calling my mock function!')).toBe('I am a mock function');
+    expect(mock).toHaveBeenCalledWith('Calling my mock function!');
+});

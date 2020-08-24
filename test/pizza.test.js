@@ -33,3 +33,19 @@ test('mock implementation of a basic function', () => {
     expect(mock('Calling my mock function!')).toBe('I am a mock function');
     expect(mock).toHaveBeenCalledWith('Calling my mock function!');
 });
+
+test('mock return value of a function one time',() => {
+    const mock = jest.fn();
+
+    mock.mockReturnValueOnce('Hello').mockReturnValueOnce('there!');
+
+    mock();
+    mock();
+
+    expect(mock).toHaveBeenCalledTimes(2);
+
+    mock('Hello','there','steve');
+
+    expect(mock).toHaveBeenCalledWith('Hello','there','steve');
+
+});

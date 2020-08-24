@@ -16,3 +16,14 @@ test('checks for pizza names available on menu', () => {
         'Sicilian Pizza'
     ])
 });
+
+for (let i = 0; i < pizzas.length; i+=1) {
+    test(`pizza ${i} should have properties (id, name, image, desc, price)`,() => {
+        expect(pizzas[i]).toHaveProperty('id');
+        expect(pizzas[i]).toHaveProperty('name');
+        expect(pizzas[i]).toHaveProperty('image');
+        expect(pizzas[i]).toHaveProperty('desc');
+        expect(pizzas[i]).toHaveProperty('price');
+        expect(pizzas[i]).not.toHaveProperty('flavor');
+    });
+}
